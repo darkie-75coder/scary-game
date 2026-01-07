@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: 0.3s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  height: 90vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background: url("a.svg");
+  gap: 5rem;
+  color: #000;
+}
+
+.heading {
+  color: #fff;
+}
+
+.records {
+  visibility: hidden;
+}
+
+.main {
+  visibility: hidden;
+}
+
+.emo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: transparent;
+  font-size: 100px;
+  -webkit-text-stroke: 3px #000;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.face {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 400px;
+  background-color: transparent;
+  animation: rotate 1s ease-in-out infinite alternate;
+}
+
+.hovet:hover {
+  transform: scale(1.2);
+}
+
+.click {
+  font-size: 60px;
+  color: transparent;
+  -webkit-text-stroke: 2px #000;
+}
+
+img {
+  height: 300px;
+  width: 300px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(-15deg);
+  }
+
+  to {
+    transform: rotate(15deg);
+  }
+}
