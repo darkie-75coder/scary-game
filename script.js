@@ -6,7 +6,9 @@ let count = document.querySelector(".click");
 let hagal = document.querySelector(".hagal");
 let one = document.querySelector(".main");
 let two = document.querySelector(".records");
-let clicks = 0;
+let clicks = getData();
+dclicks.innerText = clicks;
+applystate();
 
 const audio = new Audio("mouse-click-sound.wav");
 const audio2 = new Audio("smile-dog-jumpscare-167171.wav");
@@ -16,6 +18,7 @@ two.classList.remove("records");
 
 face.addEventListener("click", () => {
   clicks += 1;
+  saveData();
   dclicks.innerText = clicks;
   audio.pause();
   audio.currentTime = 0;
@@ -30,6 +33,10 @@ face.addEventListener("click", () => {
     face.classList.remove("pressed");
   }, 70)
 
+  applystate();
+});
+
+  function applystate() {
   if (clicks >= 100 && clicks <= 199) {
     face.src = "2.svg";
     body.style.background = "url('b.svg')"
@@ -79,4 +86,12 @@ face.addEventListener("click", () => {
     face.style.transform = "scale(3)";
     audio2.play();
   }
-});
+}
+
+function saveData() {
+  localStorage.setItem("clicks", clicks);
+}
+
+function getData() {
+  return Number(localStorage.getItem("clicks")) || 0;
+}
