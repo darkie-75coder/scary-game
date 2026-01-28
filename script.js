@@ -85,12 +85,38 @@ face.addEventListener("click", () => {
     h1.style.color = "#000";
     face.style.transform = "scale(3)";
     audio2.play();
+
+    audio2.onended = () => {
+      face.style.pointerEvents = "auto";
+      resetGame();
+    }
+    
   }
 }
 
 function saveData() {
   localStorage.setItem("clicks", clicks);
 }
+
+function resetGame() {
+  clicks = 0;
+  localStorage.setItem("clicks", clicks);
+
+  dclicks.innerText = clicks;
+
+  face.src = "1.svg";
+  face.style.transform = "scale(1)";
+
+  body.style.background = "";
+  body.style.backgroundImage = "";
+  body.style.backgroundSize = "";
+  body.style.backgroundRepeat = "";
+
+  h1.style.webkitTextStroke = "2px #000";
+  count.style.webkitTextStroke = "2px #000"
+
+}
+
 
 function getData() {
   return Number(localStorage.getItem("clicks")) || 0;
