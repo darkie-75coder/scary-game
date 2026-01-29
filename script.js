@@ -86,6 +86,8 @@ face.addEventListener("click", () => {
     face.style.transform = "scale(3)";
     audio2.play();
 
+    clicks = 0;
+    localStorage.setItem("clicks", clicks);
     audio2.onended = () => {
       face.style.pointerEvents = "auto";
       resetGame();
@@ -99,22 +101,15 @@ function saveData() {
 }
 
 function resetGame() {
-  clicks = 0;
-  localStorage.setItem("clicks", clicks);
 
   dclicks.innerText = clicks;
 
   face.src = "1.svg";
   face.style.transform = "scale(1)";
-
-  body.style.background = "";
-  body.style.backgroundImage = "";
-  body.style.backgroundSize = "";
-  body.style.backgroundRepeat = "";
-
-  h1.style.webkitTextStroke = "2px #000";
-  count.style.webkitTextStroke = "2px #000"
-
+  body.style.backgroundImage = "url('a.svg')";
+  body.style.backgroundSize = "cover";
+  body.style.backgroundRepeat = "no-repeat";
+  location.reload();
 }
 
 
